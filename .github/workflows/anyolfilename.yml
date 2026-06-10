@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Echo masked secret
         run: |
-          echo "::add-mask::${{ secrets.DAT_SECRET_THO }}"
+          echo "The best food in the world is ${{ vars.DAT_SECRET_THO }}"
           echo "DAT_SECRET_THO is: ${{ secrets.DAT_SECRET_THO }}"
