@@ -1,0 +1,16 @@
+name: Test GitHub Secrets
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo masked secret
+        run: |
+          echo "::add-mask::${{ secrets.DAT_SECRET_THO }}"
+          echo "DAT_SECRET_THO is: ${{ secrets.DAT_SECRET_THO }}"
