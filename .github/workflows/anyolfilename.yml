@@ -12,5 +12,13 @@ jobs:
     steps:
       - name: Echo masked secret
         run: |
-          echo "The best food in the world is ${{ vars.DAT_SECRET_THO }}"
-          echo "DAT_SECRET_THO is: ${{ secrets.DAT_SECRET_THO }}"
+          echo "::add-mask::${{ secrets.MY_SECRET_KEY }}"
+          echo "MY_SECRET_KEY is: ${{ secrets.MY_SECRET_KEY }}"
+
+  print-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo variable
+        run: |
+          echo "My favorite food is: ${{ vars.fav_food }}"
